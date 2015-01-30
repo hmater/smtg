@@ -1,0 +1,133 @@
+<html>
+<head>
+	<title></title>
+
+	<style type="text/css">
+		*{
+			margin: 0px;
+			padding: 0px;
+			color: white;
+		}
+		a{
+			text-decoration: none;
+			color: white;
+		}
+		#cont{
+			/*background-image: url('img/4.jpg');*/
+			/*background-color: grey;*/
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-size: 100% 100%;
+
+
+			position: absolute;
+			height: 100%;
+			width: 100%;
+		}
+		#barra1{
+			position: absolute;
+			height:70%;
+			width:100%;
+			background-color: transparent;
+			margin: auto;
+			right:0;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			text-align: center;
+			/*font-size: ;*/
+			/*line-height: ;*/
+		}
+		#barra2{
+			
+		}
+		.boton{
+			margin-right: 2.5%;
+			margin-left: 2.5%;
+			width: 15%;
+			height: 10%;
+			/*background-color: rgba(80,80,80,0.4);*/
+			background-color: rgba(10,10,10,0.3);
+			float: left;
+			display: inline;
+			text-align: center;
+			font-size: 50px;
+			border-radius: 10px;
+			overflow: hidden;
+		}
+
+
+	</style>
+
+</head>
+<body>
+	<div id="cont">	
+
+		<div id="barra1">
+			<a href="#"><div id="vida_izq" onclick="perder1vida(this)" style="display:inline">20</div>
+			<div style="display:inline">/</div>
+			<div id="vida_der" onclick="perder1vida(this)" style="display:inline">20</div></a>
+		</div>
+
+		<div id="barra2">
+
+			<a href="#"><div class="boton" onclick="ganar1vida(document.getElementById('vida_izq'))">+1</div></a>
+			<a href="#"><div class="boton" onclick="ganar5vidas(document.getElementById('vida_izq'))">+5</div></a>
+			<a href=""><div class="boton" id="boton2">REPITO!</div></a>
+			<a href="#"><div class="boton" onclick="ganar1vida(document.getElementById('vida_der'))">+1</div></a>
+			<a href="#"><div class="boton" onclick="ganar5vidas(document.getElementById('vida_der'))">+5</div></a>
+		</div>
+		
+
+	</div>
+
+
+
+</body>
+
+<script type="text/javascript">
+		window.onload = function(){
+			var h = document.getElementById('barra1').offsetHeight;
+			var s = h*0.8;
+			var l = s*0.15;
+			var r = h*0.1;
+			document.getElementById('barra1').style.fontSize = s + "px";
+			document.getElementById('barra1').style.lineHeight = s + "px";
+			
+			var botones = document.getElementsByClassName('boton');
+			for (var i = botones.length - 1; i >= 0; i--) {
+				botones[i].style.fontSize = l + "px";
+			};
+
+			document.getElementById('boton2').style.fontSize = r + "px";
+
+		}
+		window.onresize = function() {
+    		var h = document.getElementById('barra1').offsetHeight;
+			var s = h*0.8;
+			var l = s*0.15;
+			var r = h*0.1;
+			document.getElementById('barra1').style.fontSize = s + "px";
+			document.getElementById('barra1').style.lineHeight = s + "px";
+
+			var botones = document.getElementsByClassName('boton');
+			for (var i = botones.length - 1; i >= 0; i--) {
+				botones[i].style.fontSize = l + "px";
+			};
+
+			document.getElementById('boton2').style.fontSize = r + "px";
+
+		}
+		function perder1vida(Objeto){
+			Objeto.innerHTML = Objeto.innerHTML-1;
+		}
+		function ganar1vida(Objeto){
+			Objeto.innerHTML = Objeto.innerHTML-1+2;
+		}
+		function ganar5vidas(Objeto){
+			Objeto.innerHTML = Objeto.innerHTML-1+6;
+		}
+
+</script>
+
+</html>
